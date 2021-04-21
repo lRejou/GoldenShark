@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\Wgmigrations" table="wgmigrations">
+    <indexes>
+      <index name="wgmigrations_s_idx" columns="success"/>
+      <index name="wgmigrations_vr_idx" columns="version_rank"/>
+      <index name="wgmigrations_ir_idx" columns="installed_rank"/>
+    </indexes>
+    <id name="version" type="string" column="version" length="50">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="versionRank" type="integer" column="version_rank" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="installedRank" type="integer" column="installed_rank" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="description" type="string" column="description" length="200" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="type" type="string" column="type" length="20" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="script" type="string" column="script" length="1000" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="checksum" type="integer" column="checksum" nullable="true">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="installedBy" type="string" column="installed_by" length="100" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="installedOn" type="datetime" column="installed_on" nullable="false">
+      <options>
+        <option name="default">CURRENT_TIMESTAMP</option>
+      </options>
+    </field>
+    <field name="executionTime" type="integer" column="execution_time" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="success" type="boolean" column="success" nullable="false"/>
+  </entity>
+</doctrine-mapping>
