@@ -20,10 +20,8 @@ class MainController extends AbstractController
         
         $myEco = $myapi->call("econ.getBalance" , ["Presussit_in_Ore"]);
 
-        var_dump($myEco);
+        //var_dump($myEco);
 
-        return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
-        ]);
+        return $this->render('main/index.html.twig');
     }
 }
