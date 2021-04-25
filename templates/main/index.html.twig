@@ -1,7 +1,23 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('style/accueil.css') }}" />{% endblock %}
 {% block title %}GoldenShark : Accueil{% endblock %}
 
 {% block body %}
+
+
+<div class="containerAccueil">
+    <div class="containerSkin">
+        <img src="{{ urlSkin }}">
+    </div>
+    <div class="containerInfo">
+        <div class="PlayerName">{{ playerName }}</div>
+        <div class="PlayerGrade">Administrateur</div>
+        <div class="PlayerEntreprise">Travail chez : <span>NomDeLaBoite</span></div>
+        <div class="PlayerSolde">Porte feuille : <span>50 000 po</span></div>
+        <div class="PlayerBank">Argent en banque : <span>680 000 po</span></div>
+    </div>
+</div>
+
 
 {% endblock %}

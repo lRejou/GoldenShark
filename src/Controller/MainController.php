@@ -16,13 +16,24 @@ class MainController extends AbstractController
     public function index(): Response
     {
 
+        $player = "Presussit_in_Ore";
+
+
+        //URL pour le skin
+        $UUID = json_decode (file_get_contents('https://api.mojang.com/users/profiles/minecraft/' . $player));
+        $srcImg = "https://crafatar.com/renders/body/" . $UUID->id ;
+
+
         $myapi = new JSONAPI("51.75.186.103" , "30581" , "admin" , "changeme");
         
         $myEco = $myapi->call("econ.getBalance" , ["Presussit_in_Ore"]);
 
-        //var_dump($myEco);
 
-        return $this->render('main/index.html.twig');
+
+        return $this->render('main/index.html.twig', [
+            'urlSkin' => $srcImg,
+             'playerName' => $player
+        ]);
     }
 
     /**

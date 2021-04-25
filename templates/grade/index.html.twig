@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}<link rel="stylesheet" href="{{ asset('style/grade.css') }}" />{% endblock %}
+{% block title %}GoldenShark : Grade{% endblock %}
+
+{% block body %}
+
+<div class="containerGrade">
+
+    <div class="gradePrec">
+        <div class="titre">Visiteur</div>
+        <div class="iconInfo"><i class="fas fa-info-circle"></i></div>
+    </div>
+
+    <div class="arrow"><i class="fas fa-chevron-down"></i></div>
+
+    <div class="gradeSelect">
+        <div class="titre">Farmeur</div>
+        <div class="iconInfo"><i class="fas fa-info-circle"></i></div>
+    </div>
+
+    <div class="arrow"><i class="fas fa-chevron-down"></i></div>
+
+    <div class="grade">
+        <div class="titre">Bourgeoi</div>
+        <button class="buttonStyle-gold">Achetez pour 100 000 po</button>
+        <div class="iconInfo"><i class="fas fa-info-circle"></i></div>
+    </div>
+
+    <div class="arrow"><i class="fas fa-chevron-down"></i></div>
+
+    <div class="grade">
+        <div class="titre">Entrepreneur</div>
+        <div class="iconInfo"><i class="fas fa-info-circle"></i></div>
+    </div>
+
+    <div class="arrow"><i class="fas fa-chevron-down"></i></div>
+
+    <div class="grade">
+        <div class="titre">PDG</div>
+        <div class="iconInfo"><i class="fas fa-info-circle"></i></div>
+    </div>
+    
+
+
+</div>
+
+{% endblock %}

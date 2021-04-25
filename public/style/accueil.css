@@ -1,0 +1,54 @@
+.containerAccueil{
+    width: 600px;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+.containerSkin{
+
+}
+.containerInfo{
+    width: 50%;
+    height: auto;
+    font-family: "Montserrat";
+}
+
+.PlayerName{
+    font-size: 25px;
+    margin: 20px 0 5px 0;
+    font-weight: 500;
+}
+.PlayerGrade{
+    background-color: rgb(28, 78, 172);
+    display: inline-block;
+    width: auto;
+    padding: 5px 20px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0px 5px 5px grey;
+}
+
+.PlayerEntreprise{
+    margin: 20px 0 5px 0;
+}
+.PlayerEntreprise > span{
+    font-weight: bold;
+    color:rgb(28, 78, 172)
+}
+
+.PlayerSolde{
+    margin: 20px 0 5px 0;
+}
+.PlayerSolde > span{
+    font-weight: bold;
+    color:rgb(28, 78, 172)
+}
+
+.PlayerBank{
+    margin: 20px 0 5px 0;
+}
+.PlayerBank > span{
+    font-weight: bold;
+    color:rgb(28, 78, 172)
+}
