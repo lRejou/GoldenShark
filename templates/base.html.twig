@@ -15,6 +15,7 @@
         {% block javascripts %}
         {% endblock %}
         <script src="{{ asset('script/menu.js') }}" defer></script>
+        <script src="{{ asset('script/modal.js') }}"></script>
     </head>
     <body>
 
@@ -42,10 +43,15 @@
         </menu>
 
 
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+
+        
+        
 
 
 
-
-        {% block body %}{% endblock %}
+        
     </body>
 </html>

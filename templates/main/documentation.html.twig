@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GoldenShark : Accueil{% endblock %}
+
+{% block body %}
+            {# Exemple modal 1 #}
+            <button id="ButtonModal1">OpenModal 1</button>
+            <div id="Modal1">
+                <div class="titreModal">Titre du modal</div>
+                <div class="contentModal">contenue du modal</div>
+            </div>
+            <script> var modal1 = newModal.initModal("ButtonModal1" , "Modal1");</script>
+
+            {# Exemple modal 2 #}
+            <button id="ButtonModal2">OpenModal 2</button>
+            <div id="Modal2">
+                <div class="titreModal">Titre du modal 2</div>
+                <div class="contentModal">contenue du modal 2</div>
+            </div>
+            <script> var modal1 = newModal.initModal("ButtonModal2" , "Modal2");</script>
+
+
+            {#exemple button#}
+            <button>button neutre</button>
+            <button class="buttonStyle-green">button Vert</button>
+            <button class="buttonStyle-red">button Rouge</button>
+            <button class="buttonStyle-gold">button Or</button>
+            {# Exemple button sur n'import quelle balise#}
+            <a class="buttonStyle" href="#">Bonjour je suis un lien</a>
+            <a class="buttonStyle buttonStyle-red" href="#">Bonjour je suis un lien Rouge</a>
+
+            <img src="{{ srcImg }}">
+
+            
+            
+{% endblock %}

@@ -24,4 +24,18 @@ class MainController extends AbstractController
 
         return $this->render('main/index.html.twig');
     }
+
+    /**
+     * @Route("/doc", name="documentation")
+     */
+    public function doc(): Response
+    {
+        // Avoir un URL pour afficher le skin d'un user
+        //API pour les skins https://crafatar.com/
+        $player = "Maqueux";
+        $UUID = json_decode (file_get_contents('https://api.mojang.com/users/profiles/minecraft/' . $player));
+        $srcImg = "https://crafatar.com/renders/body/" . $UUID->id ;
+
+        return $this->render('main/documentation.html.twig', ["srcImg" => $srcImg]);
+    }
 }

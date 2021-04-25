@@ -4,6 +4,50 @@
 }
 
 
+main{
+    margin: 80px 0px 0px 300px;
+    width: calc(100% - 380px);
+    transition: 0.4s;
+}
+
+/*==================Les buttons==================================*/
+button , .buttonStyle{
+    height: 30px;
+    width: auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0px 10px;
+    font-size: 16px;
+    font-family: "Montserrat";
+    font-weight: bold;
+    background-color: white;
+    border : 0px;
+    box-shadow: 0px 0px 3px silver;
+    transition: 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+button:hover , .buttonStyle:hover{
+    box-shadow: 0px 5px 5px silver;
+    transform: scale(1.05);
+}
+.buttonStyle-green{
+    color: white;
+    background: linear-gradient(#2ECC71, #1E8449);
+}
+.buttonStyle-red{
+    color: white;
+    background: linear-gradient(#EC7063, #B03A2E );
+}
+.buttonStyle-gold{
+    color: white;
+    text-shadow: 0px 0px 3px rgb(167, 167, 0);
+    background: linear-gradient(#ffe57f , #dad61f  );
+}
+
 /*===================================Logo==========================*/
 header{
     display: flex;
@@ -75,4 +119,9 @@ header > .linkLogo > img{
 .MenuTextButton{
     opacity: 1;
     transition: 0.2;
+}
+
+/*============================ Modal ===================================*/
+#Modal1{
+
 }
