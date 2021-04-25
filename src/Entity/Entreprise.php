@@ -34,6 +34,11 @@ class Entreprise
      */
     private $BankAccount;
 
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, mappedBy="entreprise", cascade={"persist", "remove"})
+     */
+    private $user;
+
     public function __construct()
     {
         $this->entrepriseContracts = new ArrayCollection();
@@ -94,6 +99,28 @@ class Entreprise
     public function setBankAccount(?BankAccount $BankAccount): self
     {
         $this->BankAccount = $BankAccount;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($user === null && $this->user !== null) {
+            $this->user->setEntreprise(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($user !== null && $user->getEntreprise() !== $this) {
+            $user->setEntreprise($this);
+        }
+
+        $this->user = $user;
 
         return $this;
     }

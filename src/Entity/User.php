@@ -69,6 +69,11 @@ class User
      */
     private $EntrepriseContracts;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Entreprise::class, inversedBy="user", cascade={"persist", "remove"})
+     */
+    private $entreprise;
+
     public function __construct()
     {
         $this->lands = new ArrayCollection();
@@ -232,6 +237,18 @@ class User
                 $entrepriseContract->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEntreprise(): ?Entreprise
+    {
+        return $this->entreprise;
+    }
+
+    public function setEntreprise(?Entreprise $entreprise): self
+    {
+        $this->entreprise = $entreprise;
 
         return $this;
     }
