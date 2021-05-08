@@ -11,11 +11,15 @@
         <img src="{{ urlSkin }}">
     </div>
     <div class="containerInfo">
-        <div class="PlayerName">{{ playerName }}</div>
-        <div class="PlayerGrade">Administrateur</div>
-        <div class="PlayerEntreprise">Travail chez : <span>NomDeLaBoite</span></div>
-        <div class="PlayerSolde">Porte feuille : <span>50 000 po</span></div>
-        <div class="PlayerBank">Argent en banque : <span>680 000 po</span></div>
+        <div class="PlayerName">{{ infoPlayer.pseudo }}</div>
+        <div class="PlayerGrade">{{ infoPlayer.grade.name }}</div>
+        {% if infoPlayer.entreprise %}
+            <div class="PlayerEntreprise">Patron de : <span>{{ infoPlayer.entreprise.name }}</span></div>
+        {% else %}
+            <div class="PlayerEntreprise">Travail chez : <span>NomDeLaBoite</span></div>
+        {% endif %}
+        <div class="PlayerSolde">Porte feuille : <span>{{Eco|number_format(2, '.', ' ')}} po</span></div>
+        <div class="PlayerBank">Argent en banque : <span>{{ infoPlayer.BankAcount.money|number_format(2, '.', ' ') }} po</span></div>
     </div>
 </div>
 

@@ -29,7 +29,8 @@ const newModal = {
             "z-index" : "100",
             "height" : "100%",
             "width" : "100%",
-            "background-color" : "rgba(0,0,0,0.8)"
+            "background-color" : "rgba(0,0,0,0.8)",
+            "z-index" : "1000"
         });
 
         //Container du modal
@@ -43,7 +44,8 @@ const newModal = {
             "height" : "auto",
             "width" : "350px",
             "background-color" : "white",
-            "font-family" : "Montserrat"
+            "font-family" : "Montserrat",
+            
         });
 
         // Button close du modal

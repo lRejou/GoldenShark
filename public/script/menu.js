@@ -4,7 +4,7 @@ var menuOpen = true;
 $( "#MenuOpenClose" ).click(function() {
     
     if(menuOpen === true){
-        $("main").css({"width" : "calc(100% - 100px)", "margin" : "80px 0px 0px 100px"});
+        $("main").css({ "margin" : "80px 0px 0px 100px"});
         $(".MenuTextButton").css({"display" : "none"});
         $(".menuSimpleLink").css({"width" : "80px", "text-align" : "center", "padding-left" : "0px" });
         $(".containerLinkMenu").css({"width" : "80px"});
@@ -13,7 +13,7 @@ $( "#MenuOpenClose" ).click(function() {
         menuOpen = false;
     }
     else{
-        $("main").css({"width" : "calc(100% - 300px)", "margin" : "80px 0px 0px 300px"});
+        $("main").css({ "margin" : "80px 0px 0px 300px"});
         $(".menuSimpleLink").css({"width" : "250px", "text-align" : "left", "padding-left" : "10px" });
         $(".containerLinkMenu").css({"width" : "250px"});
         $("#MenuApp").css({"width" : "250px", "transition" : "0.3s"});
