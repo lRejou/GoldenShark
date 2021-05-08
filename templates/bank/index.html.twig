@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('style/bank.css') }}" />
+
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+{% endblock %}
+{% block title %}GoldenShark : Ma Banque{% endblock %}
+
+
+{% block body %}
+
+
+    <div class="containerBank">
+
+        <div class="bankAccount">
+            <div class="titreAccount">Compte en banque</div>
+            <div class="money">50 000 po</div>
+            <div class="interet"> interet : 2% / semaines</div>
+
+            <br>
+
+            {# envoyer de l'argent sur minecraft #}
+            <button id="ButtonModalVersMinecraft">Banque &nbsp;<i class="fas fa-long-arrow-alt-right"></i>&nbsp; Minecraft</button>
+            <div id="ModalVersMinecraft">
+                <div class="titreModal">Envoyer de l'argent sur Minecraft</div>
+                <div class="contentModal">contenue du modal</div>
+            </div>
+            <script> var modal1 = newModal.initModal("ButtonModalVersMinecraft" , "ModalVersMinecraft");</script>
+
+            <br>
+
+            {# envoyer de l'argent sur la banque #}
+            <button id="ButtonModalVersBank">Minecraft &nbsp;<i class="fas fa-long-arrow-alt-right"></i>&nbsp; Banque</button>
+            <div id="ModalVersBank">
+                <div class="titreModal">Envoyer de l'argent de Minecraft à votre Banque</div>
+                <div class="contentModal">contenue du modal</div>
+            </div>
+            <script> var modal1 = newModal.initModal("ButtonModalVersBank" , "ModalVersBank");</script>
+
+            <br>
+
+            {# envoyer de l'argent à un autre joueur #}
+            <button id="ButtonModalVersPlayer">Banque &nbsp;<i class="fas fa-long-arrow-alt-right"></i>&nbsp; Joueur</button>
+            <div id="ModalVersPlayer">
+                <div class="titreModal">Envoyer de l'argent à un autre joueur</div>
+                <div class="contentModal">contenue du modal</div>
+            </div>
+            <script> var modal1 = newModal.initModal("ButtonModalVersPlayer" , "ModalVersPlayer");</script>
+
+        </div>
+
+        <div class="minecraftAccount">
+            <div class="titreAccount">Argent sur GoldenShark</div>
+            <div class="money">50 000 po</div>
+        </div>
+
+        
+
+    </div>
+
+
+    <div class="containerGraphique">
+        GraphiqueICI
+    </div>
+
+    <div class="historiqueVirement">
+        <div class="infoHistorique">
+            <div>Transaction de votre compte</div>
+            <div>Argent</div>
+            <div>Raison</div>
+            <div>Date & Heure</div>
+        </div>
+
+        <div class="alltransaction">
+            <div class="oneTransaction plus">
+                <div class="arrow"><i class="fas fa-chevron-up"></i></div>
+                <div class="moneyTransaction">+ 52 251,33 po</div>
+                <div>Bank Interet</div>
+                <div>08/04/2021 11h00</div>
+            </div>
+            <div class="oneTransaction plus">
+                <div class="arrow"><i class="fas fa-chevron-up"></i></div>
+                <div class="moneyTransaction">+ 3 000,00 po</div>
+                <div>Virement de Zwatagar</div>
+                <div>05/04/2021 15h44</div>
+            </div>
+            <div class="oneTransaction moins">
+                <div class="arrow"><i class="fas fa-chevron-down"></i></div>
+                <div class="moneyTransaction" >- 5 000,00 po</div>
+                <div>Virement à Zwatagar</div>
+                <div>05/04/2021 15h00</div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

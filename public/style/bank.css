@@ -1,0 +1,116 @@
+.containerBank{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-wrap: wrap;
+    font-family: "Montserrat";
+}
+.bankAccount{
+    width: 350px;
+    height: 300px;
+    box-shadow: 0px 0px 10px silver;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.minecraftAccount{
+    width: 350px;
+    height: 300px;
+    box-shadow: 0px 0px 10px silver;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titreAccount{
+    background-color: rgb(53, 53, 53);
+    color: white;
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.money{
+    font-weight: bolder;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: inset 0px 5px 10px silver;
+    width: 90%;
+    margin: 10px 0px;
+    font-family: 'Lato', sans-serif;
+}
+
+.containerBank button{
+    width: 90%;
+}
+.containerGraphique{
+    margin: 30px 0px;
+    width: 100%;
+    height: 400px;
+    background-color: rgb(32, 32, 32);
+}
+
+/*Historique virement*/
+.historiqueVirement{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 10px silver;
+    font-family: "Montserrat";
+}
+.infoHistorique{
+    width: 100%;
+    background-color: rgb(24, 24, 24);
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+    font-family: "Montserrat";
+}
+.infoHistorique > div{
+    width: 25%;
+    text-align: left;
+    font-weight: bolder;
+    height: 30px;
+    line-height: 30px;
+}
+
+.alltransaction{
+    width: 100%;
+    height: 500px;
+    overflow-y: scroll;
+}
+.oneTransaction{
+    height: 20px;
+    color: black;
+    font-size: 18px;
+    display: flex;
+}
+.oneTransaction > div{
+    width: 25%;
+    text-align: left;
+}
+
+.plus i{
+    color: green;
+}
+
+.moins i{
+    color: red;
+}
+.plus .moneyTransaction{
+    color: green;
+    font-family: 'Lato', sans-serif;
+}
+.moins .moneyTransaction{
+    color: red;
+    font-family: 'Lato', sans-serif;
+}
+
+.alltransaction .arrow{
+    text-align: center;
+}
