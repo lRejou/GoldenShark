@@ -54,6 +54,31 @@ class Grade
      */
     private $users;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $priority;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $bankIntest;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $premEmployer;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $premLocation;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -162,6 +187,66 @@ class Grade
                 $user->setGrade(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPriority(): ?int
+    {
+        return $this->priority;
+    }
+
+    public function setPriority(?int $priority): self
+    {
+        $this->priority = $priority;
+
+        return $this;
+    }
+
+    public function getBankIntest(): ?int
+    {
+        return $this->bankIntest;
+    }
+
+    public function setBankIntest(?int $bankIntest): self
+    {
+        $this->bankIntest = $bankIntest;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getPremEmployer(): ?bool
+    {
+        return $this->premEmployer;
+    }
+
+    public function setPremEmployer(?bool $premEmployer): self
+    {
+        $this->premEmployer = $premEmployer;
+
+        return $this;
+    }
+
+    public function getPremLocation(): ?bool
+    {
+        return $this->premLocation;
+    }
+
+    public function setPremLocation(?bool $premLocation): self
+    {
+        $this->premLocation = $premLocation;
 
         return $this;
     }

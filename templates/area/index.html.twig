@@ -15,127 +15,85 @@
         <div class="allTerrain">
 
             {# Balise pour 1 terrains#}
+            {% for area in player.lands %}
             <div class="oneTerrain">
                 <div class="imageTerrain">logoTerrain</div>
-                <div class="nameTerrain">Terrain : <span>Zone4892</span></div>
+                <div class="nameTerrain">Terrain : <span>{{ area.landid }}</span></div>
                 <div class="inviterTerrain">
-                    <span class="titreTerrain">Droit de contruction :</span> <br>
-                    <span class="PlayerTerrain">Zwatagar <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Maxichienne <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Go4father <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Presussit_in_Ore <a href="#"><i class="fas fa-times"></i></a></span>
+                    
+                    {% if area.UserAutorisation | length != 0 %}
+                        <span class="titreTerrain">Droit de contruction :</span> <br>
+                        {% for userAutorise in area.UserAutorisation %}
+                            <span class="PlayerTerrain">Zwatagar <a href="#"><i class="fas fa-times"></i></a></span>
+                        {% endfor %}
+                    {% endif %}
                 </div>
+                <br>
 
-                <button id="ButtonModalAddPlayer"><i class="far fa-plus-square"></i> &nbsp;Ajouter un joueur</button>
-                    <div id="ModalAddPlayer">
-                        <div class="titreModal">Ajoutez un joueur à votre terrain</div>
-                        <div class="contentModal">contenue du modal</div>
+                <a href="/onearea/{{ area.id }}" class="buttonStyle">Gérer mon terrain</a>
+
+                <br>
+                <button id="ButtonModalDeleteTerrain{{ area.landid }}" class="buttonStyle-red">Vendre</button>
+                <div id="ModalDeleteTerrain{{ area.landid }}">
+                    <div class="titreModal">Revendre le terrain {{ area.landid }} pour 800 000 po</div>
+                    <div class="contentModal">
+                        <a href="/areaSell/{{ area.id }}" class="buttonStyle buttonStyle-red">Revendre</a>
                     </div>
-                    <script> var modal1 = newModal.initModal("ButtonModalAddPlayer" , "ModalAddPlayer");</script>
-            </div>
-
-            {# Balise pour 1 terrains#}
-            <div class="oneTerrain">
-                <div class="imageTerrain">logoTerrain</div>
-                <div class="nameTerrain">Terrain : <span>Zone4892</span></div>
-                <div class="inviterTerrain">
-                    <span class="titreTerrain">Droit de contruction :</span> <br>
-                    <span class="PlayerTerrain">Zwatagar <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Maxichienne <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Go4father <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Presussit_in_Ore <a href="#"><i class="fas fa-times"></i></a></span>
                 </div>
+                <script> var modal1 = newModal.initModal("ButtonModalDeleteTerrain{{ area.landid }}" , "ModalDeleteTerrain{{ area.landid }}");</script>
+                <br>
 
-                <button id="ButtonModalAddPlayer"><i class="far fa-plus-square"></i> &nbsp;Ajouter un joueur</button>
-                    <div id="ModalAddPlayer">
-                        <div class="titreModal">Ajoutez un joueur à votre terrain</div>
-                        <div class="contentModal">contenue du modal</div>
-                    </div>
-                    <script> var modal1 = newModal.initModal("ButtonModalAddPlayer" , "ModalAddPlayer");</script>
             </div>
-
-            {# Balise pour 1 terrains#}
-            <div class="oneTerrain">
-                <div class="imageTerrain">logoTerrain</div>
-                <div class="nameTerrain">Terrain : <span>Zone4892</span></div>
-                <div class="inviterTerrain">
-                    <span class="titreTerrain">Droit de contruction :</span> <br>
-                    <span class="PlayerTerrain">Zwatagar <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Maxichienne <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Go4father <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Presussit_in_Ore <a href="#"><i class="fas fa-times"></i></a></span>
-                </div>
-
-                <button id="ButtonModalAddPlayer"><i class="far fa-plus-square"></i> &nbsp;Ajouter un joueur</button>
-                    <div id="ModalAddPlayer">
-                        <div class="titreModal">Ajoutez un joueur à votre terrain</div>
-                        <div class="contentModal">contenue du modal</div>
-                    </div>
-                    <script> var modal1 = newModal.initModal("ButtonModalAddPlayer" , "ModalAddPlayer");</script>
-            </div>
-
-            {# Balise pour 1 terrains#}
-            <div class="oneTerrain">
-                <div class="imageTerrain">logoTerrain</div>
-                <div class="nameTerrain">Terrain : <span>Zone4892</span></div>
-                <div class="inviterTerrain">
-                    <span class="titreTerrain">Droit de contruction :</span> <br>
-                    <span class="PlayerTerrain">Zwatagar <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Maxichienne <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Go4father <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Presussit_in_Ore <a href="#"><i class="fas fa-times"></i></a></span>
-                </div>
-
-                <button id="ButtonModalAddPlayer"><i class="far fa-plus-square"></i> &nbsp;Ajouter un joueur</button>
-                    <div id="ModalAddPlayer">
-                        <div class="titreModal">Ajoutez un joueur à votre terrain</div>
-                        <div class="contentModal">contenue du modal</div>
-                    </div>
-                    <script> var modal1 = newModal.initModal("ButtonModalAddPlayer" , "ModalAddPlayer");</script>
-            </div>
-
-            {# Balise pour 1 terrains#}
-            <div class="oneTerrain">
-                <div class="imageTerrain">logoTerrain</div>
-                <div class="nameTerrain">Terrain : <span>Zone4892</span></div>
-                <div class="inviterTerrain">
-                    <span class="titreTerrain">Droit de contruction :</span> <br>
-                    <span class="PlayerTerrain">Zwatagar <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Maxichienne <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Go4father <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Presussit_in_Ore <a href="#"><i class="fas fa-times"></i></a></span>
-                </div>
-
-                <button id="ButtonModalAddPlayer"><i class="far fa-plus-square"></i> &nbsp;Ajouter un joueur</button>
-                    <div id="ModalAddPlayer">
-                        <div class="titreModal">Ajoutez un joueur à votre terrain</div>
-                        <div class="contentModal">contenue du modal</div>
-                    </div>
-                    <script> var modal1 = newModal.initModal("ButtonModalAddPlayer" , "ModalAddPlayer");</script>
-            </div>
-
-            {# Balise pour 1 terrains#}
-            <div class="oneTerrain">
-                <div class="imageTerrain">logoTerrain</div>
-                <div class="nameTerrain">Terrain : <span>Zone4892</span></div>
-                <div class="inviterTerrain">
-                    <span class="titreTerrain">Droit de contruction :</span> <br>
-                    <span class="PlayerTerrain">Zwatagar <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Maxichienne <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Go4father <a href="#"><i class="fas fa-times"></i></a></span>
-                    <span class="PlayerTerrain">Presussit_in_Ore <a href="#"><i class="fas fa-times"></i></a></span>
-                </div>
-
-                <button id="ButtonModalAddPlayer"><i class="far fa-plus-square"></i> &nbsp;Ajouter un joueur</button>
-                    <div id="ModalAddPlayer">
-                        <div class="titreModal">Ajoutez un joueur à votre terrain</div>
-                        <div class="contentModal">contenue du modal</div>
-                    </div>
-                    <script> var modal1 = newModal.initModal("ButtonModalAddPlayer" , "ModalAddPlayer");</script>
-            </div>
+            {% endfor %}
 
 
         </div>
+    </div>
+
+
+    <div class="containerAllTerrainVierge">
+        <h2>Mes terrains</h2>
+        <div class="containerButtonTerrainViege">
+            <a href="/area/1" class="buttonStyle">Page 1</a>
+            <a href="/area/2" class="buttonStyle">Page 2</a>
+            <a href="/area/3" class="buttonStyle">Page 3</a>
+            <a href="/area/4" class="buttonStyle">Page 4</a>
+            <a href="/area/5" class="buttonStyle">Page 5</a>
+            <a href="/area/6" class="buttonStyle">Page 6</a>
+            <a href="/area/7" class="buttonStyle">Page 7</a>
+            <a href="/area/8" class="buttonStyle">Page 8</a>
+            <a href="/area/9" class="buttonStyle">Page 9</a>
+            <a href="/area/10" class="buttonStyle">Page 10</a>
+            <a href="/area/11" class="buttonStyle">Page 11</a>
+            <a href="/area/12" class="buttonStyle">Page 12</a>
+            <a href="/area/13" class="buttonStyle">Page 13</a>
+            <a href="/area/14" class="buttonStyle">Page 14</a>
+            <a href="/area/15" class="buttonStyle">Page 15</a>
+            <a href="/area/16" class="buttonStyle">Page 16</a>
+            <a href="/area/17" class="buttonStyle">Page 17</a>
+            <a href="/area/18" class="buttonStyle">Page 18</a>
+            <a href="/area/19" class="buttonStyle">Page 19</a>
+            <a href="/area/20" class="buttonStyle">Page 20</a>
+        </div>
+        <div class="infoTerrainVierge">
+            <div>Nom du terrain</div>
+            <div>Prix</div>
+            <div>Surface</div>
+            <div></div>
+        </div>
+        <div class="AllTerrainVierge">
+            {% for area in areas %}
+                <div class="OneTerrainVierge">
+                    <div>{{ area.landid }}</div>
+                    <div>1 000 000 po</div>
+                    <div>100 x 100 blocks</div>
+                    <div><a class="buttonStyle buttonStyle-green" href="/areaBuy/{{ area.id }}">Acheter</a></div>
+                </div>
+            {% endfor %}
+        </div>
+        
+    
+    
     </div>
 
 

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\LandRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,16 @@ class Land
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="lands")
      */
     private $User;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="LandsAutorisations")
+     */
+    private $UserAutorisation;
+
+    public function __construct()
+    {
+        $this->UserAutorisation = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +115,30 @@ class Land
     public function setUser(?User $User): self
     {
         $this->User = $User;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUserAutorisation(): Collection
+    {
+        return $this->UserAutorisation;
+    }
+
+    public function addUserAutorisation(User $userAutorisation): self
+    {
+        if (!$this->UserAutorisation->contains($userAutorisation)) {
+            $this->UserAutorisation[] = $userAutorisation;
+        }
+
+        return $this;
+    }
+
+    public function removeUserAutorisation(User $userAutorisation): self
+    {
+        $this->UserAutorisation->removeElement($userAutorisation);
 
         return $this;
     }

@@ -1,0 +1,136 @@
+.ContainerEntrepriseInfo{
+    width: 100%;
+    justify-content: space-around;
+    display: flex;
+    background-color: rgb(177, 216, 223);
+    font-family: "Montserrat";
+}
+.ContainerEntrepriseInfo > div{
+    width: 28%;
+    margin: 0px 1%;
+    height: 50px;
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titreInfo{
+    color: rgb(34, 124, 139);
+    font-size: 13px;
+}
+.dataInfo{
+    color: rgb(34, 124, 139);
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+
+.courbe{
+    background-color: silver;
+    height: 300px;
+    width: 100%;
+}
+
+
+.containerEmployer{
+    height: 500px;
+    width: 350px;
+    box-shadow: 0px 0px 10px silver;
+    font-family: "Montserrat";
+}
+.titreEmployer{
+    text-align: center;
+    font-size: 25px;
+    background-color: rgb(177, 216, 223);
+    color: rgb(34, 124, 139);
+    font-weight: bolder;
+}
+.employers{
+}
+.employer{
+    border-bottom: solid 1px grey;
+    display: flex;
+}
+.employer > .image{
+    height: 50px;
+    width: 50px;
+    background-color: springgreen;
+}
+.employer > .infoEmployer{
+    height: 50px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.employer > .infoEmployer > .name{
+    padding-left: 10px;
+    font-weight: bolder;
+}
+.employer > .infoEmployer > .salaire{
+    font-size: 13px;
+    padding-left: 10px;
+}
+.employer > .giveMoney{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    color: rgb(99, 99, 99);
+    position: relative;
+}
+
+.employer > .giveMoney:hover{
+    color: rgb(44, 44, 44);
+}
+
+.employer > .contract{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    color: rgb(99, 99, 99);
+    position: relative;
+}
+.employer > .contract:hover{
+    color: rgb(44, 44, 44);
+}
+.employer > .employerOption{
+    height: 50px;
+    width: 50px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    color: rgb(99, 99, 99);
+    position: relative;
+
+}
+.employer > .employerOption:hover{
+    color: rgb(44, 44, 44);
+}
+
+.employer .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: rgb(19, 19, 19);
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    box-shadow: 0px 0px 10px silver;
+   
+    /* Position the tooltip text - see examples below! */
+    top: -30px;
+    position: absolute;
+    z-index: 1;
+  }
+  .employer > div:hover .tooltiptext {
+    visibility: visible;
+  }

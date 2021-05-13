@@ -8,308 +8,111 @@
 
 <div class="containerGrade">
 
-
     {# GRADE VISITEUR #}
-    <div class="grade ancien__Grade">
-        <div class="logoGrade">logo</div>
-        <div class="titreGrade">Visiteur</div>
+    {% for grade in grades %}
+        <div class="grade
+        {% if grade.priority < player.grade.priority %}
+            ancien__Grade
+        {% elseif grade.priority == player.grade.priority %}
+            actuel__Grade
+        {% endif %}
+        ">
+                <div class="logoGrade">logo</div>
+                <div class="titreGrade">{{ grade.name }}</div>
 
-        <div class="optionGrade">
-            <div>Compte en banque<br>
-                <span class="infoSup">interer : <strong>0 %</strong> par semaine</span>
-            </div> 
-            <i class="fas fa-times logoRed"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Louer un terrain<br>
-            <span class="infoSup">Panneaux de location in game</span>
-            </div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Avoir un Job<br>
-            <span class="infoSup">In game : /jobs</span>
-            </div>
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Travailler pour une entreprise</div> 
-            <i class="fas fa-times logoRed"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Créer une entreprise</div> 
-            <i class="fas fa-times logoRed"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Acheter un terrain</div> 
-            <i class="fas fa-times logoRed"></i>
-        </div>
-
-        <button id="ButtonModalVisiteur">Plus d'information</button>
-            <div id="ModalVisiteur">
-                <div class="titreModal">Visiteur</div>
-                <div class="contentModal">Information sur le grade Visiteur</div>
-            </div>
-            <script> var modal1 = newModal.initModal("ButtonModalVisiteur" , "ModalVisiteur");</script>
-        
-        <div class="inactif infoGrade">Vous etes actuelement Visiteur</div>
-    </div>
-
-
-    {# GRADE Farmeur #}
-    <div class="grade actuel__Grade">
-        <div class="logoGrade">logo</div>
-        <div class="titreGrade">Farmeur</div>
-
-        <div class="optionGrade">
-            <div>Compte en banque<br>
-                <span class="infoSup">interer : <strong>1 %</strong> par semaine</span>
-            </div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Louer un terrain<br>
-            <span class="infoSup">Panneaux de location in game</span>
-            </div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Avoir un Job<br>
-            <span class="infoSup">In game : /jobs</span>
-            </div>
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Travailler pour une entreprise</div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Créer une entreprise</div> 
-            <i class="fas fa-times logoRed"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Acheter un terrain</div> 
-            <i class="fas fa-times logoRed"></i>
-        </div>
-
-        <button id="ButtonModalFarmeur">Plus d'information</button>
-            <div id="ModalFarmeur">
-                <div class="titreModal">Farmeur</div>
-                <div class="contentModal">Information sur le grade Farmeur</div>
-            </div>
-            <script> var modal1 = newModal.initModal("ButtonModalFarmeur" , "ModalFarmeur");</script>
-
-        <div class="infoGrade">Vous etes actuelement Farmeur</div>
-    </div>
-
-
-
-    {# GRADE Bourgeoi #}
-    <div class="grade">
-        <div class="logoGrade">logo</div>
-        <div class="titreGrade">Bourgeoi</div>
-
-        <div class="optionGrade">
-            <div>Compte en banque<br>
-                <span class="infoSup">interer : <strong>2 %</strong> par semaine</span>
-            </div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Louer un terrain<br>
-            <span class="infoSup">Panneaux de location in game</span>
-            </div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Avoir un Job<br>
-            <span class="infoSup">In game : /jobs</span>
-            </div>
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Travailler pour une entreprise</div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Créer une entreprise</div> 
-            <i class="fas fa-times logoRed"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Acheter un terrain</div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-        <button id="ButtonModalBourgeoi">Plus d'information</button>
-            <div id="ModalBourgeoi">
-                <div class="titreModal">Bourgeoi</div>
-                <div class="contentModal">Information sur le grade Bourgeoi</div>
-            </div>
-            <script> var modal1 = newModal.initModal("ButtonModalBourgeoi" , "ModalBourgeoi");</script>
-        
-        <div class="inactif infoGrade">Vous etes actuelement Bourgeoi</div>
-        <br>
-
-        <button id="ButtonModalFarmeurBuy" class="buttonStyle-green">Devenir Bourgeoi</button>
-            <div id="ModalFarmeurBuy">
-                <div class="titreModal">Devenir Bourgeoi</div>
-                <div class="contentModal">
-                    Vous pouvez acheter le grade Bourgeoi pour <strong>100 000 po</strong><br>
-                    <div class="MessageRouge">Vous devez avoir 100 000 po sur votre compte en banque</div>
-                    <a href="#" class="buttonStyle buttonStyle-green">Achetez</a>
+                <div class="optionGrade">
+                    <div>Compte en banque<br>
+                        <span class="infoSup">interer : <strong>{{ grade.bankIntest }} %</strong> par semaine</span>
+                    </div> 
+                    {% if grade.permebank == true %}
+                        <i class="fas fa-check logoGreen"></i>
+                    {% else %}
+                        <i class="fas fa-times logoRed"></i>
+                    {% endif %}
                 </div>
+
+
+                <div class="optionGrade">
+                    <div>Louer un terrain<br>
+                    <span class="infoSup">Panneaux de location in game</span>
+                    </div> 
+                    <i class="fas fa-check logoGreen"></i>
+                </div>
+
+
+                <div class="optionGrade">
+                    <div>Avoir un Job<br>
+                    <span class="infoSup">In game : /jobs</span>
+                    </div>
+                    <i class="fas fa-check logoGreen"></i>
+                </div>
+
+
+                <div class="optionGrade">
+                    <div>Travailler pour une entreprise</div>
+                    {% if grade.prememployer == true %}
+                        <i class="fas fa-check logoGreen"></i>
+                    {% else %}
+                        <i class="fas fa-times logoRed"></i>
+                    {% endif %}
+                </div>
+
+
+                <div class="optionGrade">
+                    <div>Créer une entreprise</div>
+                    {% if grade.permEntreprise == true %}
+                        <i class="fas fa-check logoGreen"></i>
+                    {% else %}
+                        <i class="fas fa-times logoRed"></i>
+                    {% endif %}
+                </div>
+
+
+                <div class="optionGrade">
+                    <div>Acheter un terrain</div> 
+                    {% if grade.permLand == true %}
+                        <i class="fas fa-check logoGreen"></i>
+                    {% else %}
+                        <i class="fas fa-times logoRed"></i>
+                    {% endif %}
+                </div>
+
+
+                
+
+                <button id="ButtonModal{{ grade.name }}">Plus d'information</button>
+                <div id="Modal{{ grade.name }}">
+                    <div class="titreModal">{{ grade.name }}</div>
+                    <div class="contentModal">Information sur le grade {{ grade.name }}</div>
+                </div>
+                <script> var modal1 = newModal.initModal("ButtonModal{{ grade.name }}" , "Modal{{ grade.name }}");</script>
+                <br>
+                {% if grade.priority == player.grade.priority + 1 %}
+
+                <button id="ButtonModal{{ grade.name }}Buy" class="buttonStyle-green">Devenir {{ grade.name }}</button>
+                <div id="Modal{{ grade.name }}Buy">
+                    <div class="titreModal">Devenir {{ grade.name }} pour <br><strong>{{ grade.price |number_format(2, '.', ' ') }} po</strong> </div>
+                    <div class="contentModal">
+ 
+                        {% if player.bankAcount.money < grade.price %}
+                            Vous pouvez acheter le grade {{ grade.name }} pour <strong>{{ grade.price |number_format(2, '.', ' ') }} po</strong><br>
+                            <div class="MessageRouge">Vous devez avoir {{ grade.price |number_format(2, '.', ' ') }} po sur votre compte en banque</div>
+                        {% else %}
+                            <a href="/grade/buy" class="buttonStyle buttonStyle-green">Achetez</a>
+                        {% endif %}
+
+                    </div>
+                </div>
+                <script> var modal1 = newModal.initModal("ButtonModal{{ grade.name }}Buy" , "Modal{{ grade.name }}Buy");</script>
+
+                {% elseif grade.priority > player.grade.priority + 1  %}
+                
+                <div class="inactif infoGrade">Vous etes actuelement {{ grade.name }}</div>
+
+                {% endif %}
             </div>
-            <script> var modal1 = newModal.initModal("ButtonModalFarmeurBuy" , "ModalFarmeurBuy");</script>
-    </div>
 
-
-
-    {# GRADE Entrepreneur #}
-    <div class="grade">
-        <div class="logoGrade">logo</div>
-        <div class="titreGrade">Entrepreneur</div>
-
-        <div class="optionGrade">
-            <div>Compte en banque<br>
-                <span class="infoSup">interer : <strong>5 %</strong> par semaine</span>
-            </div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Louer un terrain<br>
-            <span class="infoSup">Panneaux de location in game</span>
-            </div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Avoir un Job<br>
-            <span class="infoSup">In game : /jobs</span>
-            </div>
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Travailler pour une entreprise</div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Créer une entreprise</div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Acheter un terrain</div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-        <button id="ButtonModalEntrepreneur">Plus d'information</button>
-            <div id="ModalEntrepreneur">
-                <div class="titreModal">Entrepreneur</div>
-                <div class="contentModal">Information sur le grade Entrepreneur</div>
-            </div>
-            <script> var modal1 = newModal.initModal("ButtonModalEntrepreneur" , "ModalEntrepreneur");</script>
-
-        <div class="inactif infoGrade">Vous etes actuelement Entrepreneur</div>
-    </div>
-
-
-
-    {# GRADE PDG #}
-    <div class="grade">
-        <div class="logoGrade">logo</div>
-        <div class="titreGrade">PDG</div>
-
-        <div class="optionGrade">
-            <div>Compte en banque<br>
-                <span class="infoSup">interer : <strong>10 %</strong> par semaine</span>
-            </div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Louer un terrain<br>
-            <span class="infoSup">Panneaux de location in game</span>
-            </div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Avoir un Job<br>
-            <span class="infoSup">In game : /jobs</span>
-            </div>
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Travailler pour une entreprise</div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Créer une entreprise</div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-
-        <div class="optionGrade">
-            <div>Acheter un terrain</div> 
-            <i class="fas fa-check logoGreen"></i>
-        </div>
-
-            <button id="ButtonModalPDG">Plus d'information</button>
-            <div id="ModalPDG">
-                <div class="titreModal">PDG</div>
-                <div class="contentModal">Information sur le grade PDG</div>
-            </div>
-            <script> var modal1 = newModal.initModal("ButtonModalPDG" , "ModalPDG");</script>
-        
-        <div class="inactif infoGrade">Vous etes actuelement PDG</div>
-
-    </div>
-
-
+    {% endfor %}
 
 </div>
 

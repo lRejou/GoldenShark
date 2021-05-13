@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('style/entreprise.css') }}" />
+
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+{% endblock %}
+{% block title %}GoldenShark : Ma Banque{% endblock %}
+
+
+{% block body %}
+
+
+    <div class="ContainerEntrepriseInfo">
+
+        <div>
+            <span class="titreInfo">Notre entreprise</span>
+            <span class="dataInfo">PresussitCorporation</span>
+        </div>
+
+        <div>
+            <span class="titreInfo">Nombre d'employés</span>
+            <span class="dataInfo">18</span>
+        </div>
+
+        <div>
+            <span class="titreInfo">Capital : </span>
+            <span class="dataInfo">18 k €</span>
+        </div>
+
+        <div>
+            <span class="titreInfo">Action : </span>
+            <span class="dataInfo">45% - 8 k €</span>
+        </div>
+
+        <div>
+            <span class="titreInfo">Vos pars :</span>
+            <span class="dataInfo">55% - 10 K €</span>
+        </div>
+    </div>
+
+    <div class="courbe">
+        courbe
+    </div>
+
+    <div class="containerEmployer">
+        <div class="titreEmployer">Mes employés</div>
+        <div class="employers">
+            <div class="employer">
+                <div class="image">image</div>
+                <div class="infoEmployer">
+                    <div class="name">Presussit_in_Ore</div>
+                    <div class="salaire">10k€ / semaine</div>
+                </div>
+
+                <div id="buttonModal1" class="giveMoney"><i class="fas fa-money-bill-wave"></i><span class="tooltiptext">Envoyer de l'argent</span></div>
+                <div id="Modal1">
+                    <div class="titreModal">Titre du modal 2</div>
+                    <div class="contentModal">contenue du modal 2</div>
+                </div>
+                <script> var modal2 = newModal.initModal("buttonModal1" , "Modal1");</script>
+
+                <div id="buttonModal2" class="contract"><i class="far fa-handshake"></i><span class="tooltiptext">Voir le contrat</span></div>
+                <div id="Modal2">
+                    <div class="titreModal">Titre du modal 2</div>
+                    <div class="contentModal">contenue du modal 2</div>
+                </div>
+                <script> var modal2 = newModal.initModal("buttonModal2" , "Modal2");</script>
+
+                <div id="buttonModal3" class="employerOption"><i class="fas fa-user-cog"></i><span class="tooltiptext">Modification</span></div>
+                <div id="Modal3">
+                    <div class="titreModal">Titre du modal 2</div>
+                    <div class="contentModal">contenue du modal 2</div>
+                </div>
+                <script> var modal2 = newModal.initModal("buttonModal3" , "Modal3");</script>
+            </div>
+            
+            
+
+        </div>
+    </div
+
+
+
+
+
+{% endblock %}

@@ -54,3 +54,59 @@
     text-decoration: none;
     color: white;
 }
+
+/*All terrain vierge*/
+.containerAllTerrainVierge{
+    width: 100%;
+    height: auto;
+    font-family: "Montserrat";
+    border-top: solid 1px silver ;
+    padding-top: 30px;
+}
+.infoTerrainVierge{
+    margin: 30px auto 0px auto;
+    width: 95%;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    line-height: 40px;
+    border-bottom: 1px silver solid;
+}
+.infoTerrainVierge > div{
+    width: 20%;
+    margin-left: 5%;
+    font-weight: bolder;
+}
+
+.AllTerrainVierge{
+    width: 95%;
+    height: 500px;
+    overflow-y: scroll;
+    margin-bottom: 50px;
+    margin: 0px auto 50px auto;
+    box-shadow: inset 0px 0px 10px black;
+    background-color: rgb(46, 46, 46);
+    color: white;
+}
+.AllTerrainVierge > div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+}
+.AllTerrainVierge > div > div{
+    width: 20%;
+    margin-left: 5%;
+}
+.containerButtonTerrainViege{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.containerButtonTerrainViege > a{
+    width: 150px;
+    margin: 10px 5px
+}

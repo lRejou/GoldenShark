@@ -29,9 +29,15 @@ class BankAccount
      */
     private $BankTransaction;
 
+    /**
+     * @ORM\OneToMany(targetEntity=BankAccountStats::class, mappedBy="bankAccount")
+     */
+    private $bankAccountStats;
+
     public function __construct()
     {
         $this->BankTransaction = new ArrayCollection();
+        $this->bankAccountStats = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -75,6 +81,36 @@ class BankAccount
             // set the owning side to null (unless already changed)
             if ($bankTransaction->getBankAccount() === $this) {
                 $bankTransaction->setBankAccount(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|BankAccountStats[]
+     */
+    public function getBankAccountStats(): Collection
+    {
+        return $this->bankAccountStats;
+    }
+
+    public function addBankAccountStat(BankAccountStats $bankAccountStat): self
+    {
+        if (!$this->bankAccountStats->contains($bankAccountStat)) {
+            $this->bankAccountStats[] = $bankAccountStat;
+            $bankAccountStat->setBankAccount($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBankAccountStat(BankAccountStats $bankAccountStat): self
+    {
+        if ($this->bankAccountStats->removeElement($bankAccountStat)) {
+            // set the owning side to null (unless already changed)
+            if ($bankAccountStat->getBankAccount() === $this) {
+                $bankAccountStat->setBankAccount(null);
             }
         }
 

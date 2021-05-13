@@ -3,6 +3,8 @@
 {% block stylesheets %}
 <link rel="stylesheet" href="{{ asset('style/bank.css') }}" />
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
 {% endblock %}
 {% block title %}GoldenShark : Ma Banque{% endblock %}
@@ -15,7 +17,7 @@
 
         <div class="bankAccount">
             <div class="titreAccount">Compte en banque</div>
-            <div class="money">50 000 po</div>
+            <div class="money">{{ player.BankAcount.money|number_format(2, '.', ' ') }} po</div>
             <div class="interet"> interet : 2% / semaines</div>
 
             <br>
@@ -24,7 +26,12 @@
             <button id="ButtonModalVersMinecraft">Banque &nbsp;<i class="fas fa-long-arrow-alt-right"></i>&nbsp; Minecraft</button>
             <div id="ModalVersMinecraft">
                 <div class="titreModal">Envoyer de l'argent sur Minecraft</div>
-                <div class="contentModal">contenue du modal</div>
+                <div class="contentModal">
+                    <form method="POST" action="/bank/virement/bank/minecraft" class="formVirement">
+                        <input type="number" name="moneyTransaction" value="1000" min="0" max="{{ player.BankAcount.money }}">
+                        <input type="submit" name="valide" class="buttonStyle buttonStyle-green">
+                    </form>
+                </div>
             </div>
             <script> var modal1 = newModal.initModal("ButtonModalVersMinecraft" , "ModalVersMinecraft");</script>
 
@@ -34,35 +41,37 @@
             <button id="ButtonModalVersBank">Minecraft &nbsp;<i class="fas fa-long-arrow-alt-right"></i>&nbsp; Banque</button>
             <div id="ModalVersBank">
                 <div class="titreModal">Envoyer de l'argent de Minecraft à votre Banque</div>
-                <div class="contentModal">contenue du modal</div>
+                <div class="contentModal">
+                    <form method="POST" action="/bank/virement/minecraft/bank" class="formVirement">
+                        <input type="number" name="moneyTransaction" value="1000" min="0" max="{{ moneyPlayer }}">
+                        <input type="submit" name="valide" class="buttonStyle buttonStyle-green">
+                    </form>
+                </div>
             </div>
             <script> var modal1 = newModal.initModal("ButtonModalVersBank" , "ModalVersBank");</script>
 
             <br>
 
             {# envoyer de l'argent à un autre joueur #}
-            <button id="ButtonModalVersPlayer">Banque &nbsp;<i class="fas fa-long-arrow-alt-right"></i>&nbsp; Joueur</button>
+            {#<button id="ButtonModalVersPlayer">Banque &nbsp;<i class="fas fa-long-arrow-alt-right"></i>&nbsp; Joueur</button>
             <div id="ModalVersPlayer">
                 <div class="titreModal">Envoyer de l'argent à un autre joueur</div>
-                <div class="contentModal">contenue du modal</div>
+                <div class="contentModal"></div>
             </div>
-            <script> var modal1 = newModal.initModal("ButtonModalVersPlayer" , "ModalVersPlayer");</script>
+            <script> var modal1 = newModal.initModal("ButtonModalVersPlayer" , "ModalVersPlayer");</script>#}
 
         </div>
 
         <div class="minecraftAccount">
             <div class="titreAccount">Argent sur GoldenShark</div>
-            <div class="money">50 000 po</div>
+            <div class="money">{{moneyPlayer|number_format(2, '.', ' ')}} po</div>
         </div>
 
         
 
     </div>
 
-
-    <div class="containerGraphique">
-        GraphiqueICI
-    </div>
+    <canvas id="myChart" height="100px"></canvas>
 
     <div class="historiqueVirement">
         <div class="infoHistorique">
@@ -73,27 +82,65 @@
         </div>
 
         <div class="alltransaction">
-            <div class="oneTransaction plus">
-                <div class="arrow"><i class="fas fa-chevron-up"></i></div>
-                <div class="moneyTransaction">+ 52 251,33 po</div>
-                <div>Bank Interet</div>
-                <div>08/04/2021 11h00</div>
+
+            {% for playerTransaction in playerTransactions|reverse %}
+
+            <div class="oneTransaction {% if playerTransaction.amount >= 0 %} plus {% else %}moins {% endif %}">
+                <div class="arrow">
+                    {% if playerTransaction.amount >= 0 %}
+                        <i class="fas fa-chevron-up"></i>
+                    {% else %}
+                        <i class="fas fa-chevron-down"></i>
+                    {% endif %}
+                </div>
+                <div class="moneyTransaction">{{ playerTransaction.amount|number_format(2, '.', ' ') }} po</div>
+                <div>{{ playerTransaction.info }}</div>
+                <div>{{ playerTransaction.datetame |date('d/m/Y H:i:s') }}</div>
             </div>
-            <div class="oneTransaction plus">
-                <div class="arrow"><i class="fas fa-chevron-up"></i></div>
-                <div class="moneyTransaction">+ 3 000,00 po</div>
-                <div>Virement de Zwatagar</div>
-                <div>05/04/2021 15h44</div>
-            </div>
-            <div class="oneTransaction moins">
-                <div class="arrow"><i class="fas fa-chevron-down"></i></div>
-                <div class="moneyTransaction" >- 5 000,00 po</div>
-                <div>Virement à Zwatagar</div>
-                <div>05/04/2021 15h00</div>
-            </div>
+
+            {% endfor %}
         </div>
 
     </div>
+
+
+<script>
+
+var tableDate = [
+    {% for date in dates %}
+        "{{ date.date |date('d/m/Y') }}",
+    {% endfor %}
+]
+
+var tableMoney = [
+    {% for date in dates %}
+        "{{ date.money }}",
+    {% endfor %}
+]
+
+
+
+new Chart(document.getElementById("myChart"), {
+  type: 'line',
+  data: {
+    labels: tableDate,
+    datasets: [{ 
+        data: tableMoney,
+        label: "Money",
+        borderColor: "#3e95cd",
+        fill: false
+      }
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'Votre argent, jour par jour'
+    }
+  }
+});
+</script>
+
 
 
 

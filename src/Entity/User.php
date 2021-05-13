@@ -74,10 +74,16 @@ class User
      */
     private $entreprise;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Land::class, mappedBy="UserAutorisation")
+     */
+    private $LandsAutorisations;
+
     public function __construct()
     {
         $this->lands = new ArrayCollection();
         $this->EntrepriseContracts = new ArrayCollection();
+        $this->LandsAutorisations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -249,6 +255,33 @@ class User
     public function setEntreprise(?Entreprise $entreprise): self
     {
         $this->entreprise = $entreprise;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Land[]
+     */
+    public function getLandsAutorisations(): Collection
+    {
+        return $this->LandsAutorisations;
+    }
+
+    public function addLandsAutorisation(Land $landsAutorisation): self
+    {
+        if (!$this->LandsAutorisations->contains($landsAutorisation)) {
+            $this->LandsAutorisations[] = $landsAutorisation;
+            $landsAutorisation->addUserAutorisation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLandsAutorisation(Land $landsAutorisation): self
+    {
+        if ($this->LandsAutorisations->removeElement($landsAutorisation)) {
+            $landsAutorisation->removeUserAutorisation($this);
+        }
 
         return $this;
     }

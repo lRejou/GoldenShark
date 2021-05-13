@@ -114,3 +114,8 @@
 .alltransaction .arrow{
     text-align: center;
 }
+
+.formVirement{
+    display: flex;
+    justify-content: center;
+}
